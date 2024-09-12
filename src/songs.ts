@@ -20,7 +20,17 @@ export const doesTitleExist = (
   // Asígnale a la variable doesExist un true o un false dependiendo de si
   // la variable title recibida ya existe en el array de títulos recibido
 
-  if (songTitles.includes(songTitle)) {
+  let songTitlesToLowerCase: string[] = [];
+
+  for (
+    let songTitlePosition = 0;
+    songTitlePosition < songTitles.length;
+    songTitlePosition++
+  ) {
+    songTitlesToLowerCase.push(songTitles[songTitlePosition].toLowerCase());
+  }
+
+  if (songTitlesToLowerCase.includes(songTitle.toLowerCase())) {
     doesExist = true;
   } else {
     doesExist = false;
@@ -107,9 +117,11 @@ export const getErrorMessage = (errorCode: string): string => {
 
     case "too-short":
       errorMessage = "El título es demasiado corto";
+      break;
 
     case "limit":
       errorMessage = "La playlist está llena";
+      break;
 
     default:
       errorMessage = "Ha petat"; //JEJE
