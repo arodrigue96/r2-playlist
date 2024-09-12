@@ -1,2 +1,2 @@
 // Anota el tipo de esta variable
-export const songTitles = [];
+export const songTitles: string[] = [];
