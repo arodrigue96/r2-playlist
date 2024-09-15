@@ -22,13 +22,9 @@ export const doesTitleExist = (
 
   let songTitlesToLowerCase: string[] = [];
 
-  for (
-    let songTitlePosition = 0;
-    songTitlePosition < songTitles.length;
-    songTitlePosition++
-  ) {
-    songTitlesToLowerCase.push(songTitles[songTitlePosition].toLowerCase());
-  }
+  songTitles.forEach((title) => {
+    songTitlesToLowerCase.push(title.toLowerCase());
+  });
 
   if (songTitlesToLowerCase.includes(songTitle.toLowerCase())) {
     doesExist = true;
@@ -124,7 +120,7 @@ export const getErrorMessage = (errorCode: string): string => {
       break;
 
     default:
-      errorMessage = "Ha petat"; //JEJE
+      errorMessage = "Ha petat";
       break;
   }
 
