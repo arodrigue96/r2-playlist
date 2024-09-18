@@ -1,13 +1,5 @@
 export const isTitleEmpty = (songTitle: string): boolean => {
-  let isEmpty: boolean;
-  // Asígnale a la variable isEmpty un true o un false dependiendo de si
-  // la variable songTitle recibida tiene un string vacío o no
-
-  if (songTitle.length === 0) {
-    isEmpty = true;
-  } else {
-    isEmpty = false;
-  }
+  let isEmpty = songTitle.length === 0;
 
   return isEmpty;
 };
@@ -16,31 +8,22 @@ export const doesTitleExist = (
   songTitle: string,
   songTitles: string[]
 ): boolean => {
-  let doesExist: boolean;
-  // Asígnale a la variable doesExist un true o un false dependiendo de si
-  // la variable title recibida ya existe en el array de títulos recibido
-
   let songTitlesToLowerCase: string[] = [];
 
   songTitles.forEach((title) => {
     songTitlesToLowerCase.push(title.toLowerCase());
   });
 
-  if (songTitlesToLowerCase.includes(songTitle.toLowerCase())) {
-    doesExist = true;
-  } else {
-    doesExist = false;
-  }
+  let doesExist = songTitlesToLowerCase.includes(songTitle.toLowerCase());
 
   return doesExist;
 };
 
 export const isTitleShort = (songTitle: string): boolean => {
   let isShort: boolean;
-  // Asígnale a la variable isShort un true o un false dependiendo de si
-  // la variable title recibida tiene menos de 3 caracteres
+  const minimumTitleLength = 3;
 
-  if (songTitle.length < 3) {
+  if (songTitle.length < minimumTitleLength) {
     isShort = true;
   } else {
     isShort = false;
@@ -51,10 +34,9 @@ export const isTitleShort = (songTitle: string): boolean => {
 
 export const isPlaylistFull = (songTitles: string[]): boolean => {
   let isFull: boolean;
-  // Asígnale a la variable isFull un true o un false dependiendo de si
-  // el array de títulos recibido tiene 5 o más elementos
+  const minimumTitleLength = 5;
 
-  if (songTitles.length >= 5) {
+  if (songTitles.length >= minimumTitleLength) {
     isFull = true;
   } else {
     isFull = false;
@@ -64,20 +46,15 @@ export const isPlaylistFull = (songTitles: string[]): boolean => {
 };
 
 export const addSong = (songTitle: string, songTitles: string[]): void => {
-  // Añade la variable title al array de títulos recibido
   songTitles.push(songTitle);
 };
 
 export const sortSongs = (songTitles: string[]): void => {
-  // Ordena alfabéticamente el array de títulos recibido
   songTitles.sort();
 };
 
 export const getSongsCount = (songTitles: string[]): number => {
-  let songsCount: number;
-  // Asígnale a la variable songsCount el número de elementos del array recibido
-
-  songsCount = songTitles.length;
+  let songsCount = songTitles.length;
 
   return songsCount;
 };
